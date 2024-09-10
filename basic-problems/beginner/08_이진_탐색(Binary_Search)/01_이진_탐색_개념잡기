@@ -1,0 +1,15 @@
+def solution(nums, target):
+    left = 0    # 인덱스
+    right = len(nums) - 1   # 인덱스
+    while left <= right:    # 이진 탐색에서는 left와 right가 같아질 때까지! 같아질 때 target값인지 확인해야 함
+        mid = (left + right) // 2
+        if target == nums[mid]:
+            return mid
+        if target > nums[mid]:
+            left = mid + 1  # 같거나 작은 쪽에는 없는 게 확실하니까 left를 변경해 줌
+        else:
+            right = mid - 1
+    return -1
+        
+        
+print(solution([2, 5, 7, 8, 10, 15, 20, 24, 25, 30], 8))
